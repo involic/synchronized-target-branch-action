@@ -8,7 +8,7 @@ main() {
   BRANCH=${GITHUB_REF:11}
   echo "Current branch: ${BRANCH}"
 
-  echo "Verify ${BRANCH} over $1"
+  echo "Verify ${BRANCH} over ${TARGETBRANCH}"
 
   if [ "$BRANCH" == "$TARGETBRANCH" ]; then
     echo "No check of current branch needed."
