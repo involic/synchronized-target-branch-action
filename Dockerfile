@@ -5,4 +5,4 @@ RUN apk add --no-cache \
   git
 COPY entrypoint.sh /entrypoint.sh
 
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

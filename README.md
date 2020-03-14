@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2.0.0
-    - uses: involic/synchronized-target-branch-action@v1
+    - uses: involic/synchronized-target-branch-action@v1.1
       with: 
         branch: 'master'  
     
