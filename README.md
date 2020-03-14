@@ -18,7 +18,7 @@ jobs:
             - uses: actions/checkout@v2
             - run: |
                   git fetch --prune --unshallow
-            - uses: involic/synchronized-target-branch-action@feature/debug-working
+            - uses: involic/synchronized-target-branch-action@master
               with:
                   branch: 'master'
 ```
