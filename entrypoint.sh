@@ -4,7 +4,9 @@ set -o pipefail
 TARGETBRANCH=$1
 
 main() {
-  BRANCH=${GITHUB_REF}
+  echo "Current ref: ${GITHUB_REF}"
+  BRANCH=${GITHUB_REF:11}
+  echo "Current branch: ${BRANCH}"
 
   echo "Verify ${BRANCH} over $1"
 
@@ -13,9 +15,9 @@ main() {
     exit 0
   fi
 
-  echo "/usr/bin/git log --no-merges ${TARGETBRANCH} ^${BRANCH}"
+  echo "/usr/bin/git log --no-merges origin/${TARGETBRANCH} ^origin/${BRANCH}"
 
-  NOT_EMPTY_MERGES_LIST=`/usr/bin/git log --no-merges ${TARGETBRANCH} ^${BRANCH}`
+  NOT_EMPTY_MERGES_LIST=`/usr/bin/git log --no-merges origin/${TARGETBRANCH} ^origin/${BRANCH}`
   NOT_EMPTY_MERGES_COUNT=`echo $NOT_EMPTY_MERGES_LIST | grep "commit" | wc -l || true`
   echo "Not included commits numbers: ${NOT_EMPTY_MERGES_COUNT}"
 

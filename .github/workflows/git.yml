@@ -1,0 +1,13 @@
+name: Git Checks
+
+on: [push]
+
+jobs:
+    block-merge-synchronized:
+        runs-on: ubuntu-18.04
+
+        steps:
+            - uses: actions/checkout@v2.0.0
+            - uses: involic/synchronized-target-branch-action@master
+              with:
+                  branch: 'master'
