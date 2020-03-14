@@ -1,0 +1,14 @@
+name: 'Synchronized Target Branch'
+description: 'Check that branch is synchronized with target branch'
+author: 'Jetlic'
+inputs:
+    branch:  # id of input
+        description: 'Target branch'
+        required: true
+        default: 'master'
+
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.branch }}
